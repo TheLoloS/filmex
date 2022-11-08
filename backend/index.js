@@ -14,7 +14,8 @@ const Series = require("./db/Series");
 const JWT_SECRET =
   "sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk";
 
-let port = process.env.PORT || 3000;
+let port = 3001;
+// let port = process.env.PORT || 3000;
 const URI =
   "mongodb+srv://thelolos:Rayman123@cluster0.oioga.mongodb.net/rank_2048?retryWrites=true&w=majority";
 
