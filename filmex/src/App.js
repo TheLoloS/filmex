@@ -23,9 +23,21 @@ export default class App extends Component {
     axios.get("http://localhost:3001/api/getmovies").then((res) => {
       this.setState({
         movies: res.data,
+        cards: res.data.map((item, i) => {
+          return (
+            <MainCards
+              title={item.title}
+              description={item.description}
+              pictrueLink={item.pictrueLink}
+              videoLink={item.videoLink}
+              viewCounter={item.viewCounter}
+              // description={this.state.movies[0].description}
+            ></MainCards>
+          );
+        }),
       });
-      console.log(res.data[0]);
-      new MainCards(res.data[0]);
+      // console.log(res.data[0]);
+      // new MainCards(res.data);
     });
   }
 
@@ -39,14 +51,9 @@ export default class App extends Component {
           {/* {console.log(this.state.movies[0])}
           {this.state.movies.map((e) => (
              */}
-          <MainCards
-            title={this.state.movies[0].title}
-            description={this.state.movies[0].description}
-            pictrueLink={this.state.movies[0].pictrueLink}
-            videoLink={this.state.movies[0].videoLink}
-            viewCounter={this.state.movies[0].viewCounter}
-            // description={this.state.movies[0].description}
-          ></MainCards>
+          {/* {[...this.state.movies].forEach((element, i) => { */}
+
+          {this.state.cards}
           {/* ))} */}
         </div>
         <Fotter></Fotter>

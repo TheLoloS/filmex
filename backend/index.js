@@ -246,6 +246,8 @@ app.post("/api/setmovie", async (req, res) => {
   }
 });
 
+app;
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}/`);
 });
