@@ -20,7 +20,7 @@ export default class App extends Component {
     };
   }
   componentDidMount() {
-    axios.get("http://localhost:3001/api/getmovies").then((res) => {
+    axios.get("http://192.168.0.213:3001/api/getmovies").then((res) => {
       this.setState({
         movies: res.data,
         cards: res.data.map((item, i) => {
@@ -47,7 +47,7 @@ export default class App extends Component {
         <Navbar></Navbar>
         <Carusel></Carusel>
         <DownMenuBar></DownMenuBar>
-        <div className="flex flex-col w-full h-screen">
+        <div className="flex flex-col w-full h-screen mainCardsConteiner">
           {/* {console.log(this.state.movies[0])}
           {this.state.movies.map((e) => (
              */}

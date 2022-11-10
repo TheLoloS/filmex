@@ -11,13 +11,13 @@ class DownMenuBar extends Component {
               <span>Filmy</span>
               <ul className="bg-base-300">
                 <li>
-                  <a>Submenu 1</a>
+                  <a href="#up">Submenu 1</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a href="#up">Submenu 2</a>
                 </li>
                 <li>
-                  <a>Submenu 3</a>
+                  <a href="#up">Submenu 3</a>
                 </li>
               </ul>
             </li>
@@ -25,13 +25,13 @@ class DownMenuBar extends Component {
               <span>Seriale</span>
               <ul className="bg-base-300">
                 <li>
-                  <a>Submenu 1</a>
+                  <a href="#up">Submenu 1</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a href="#up">Submenu 2</a>
                 </li>
                 <li>
-                  <a>Submenu 3</a>
+                  <a href="#up">Submenu 3</a>
                 </li>
               </ul>
             </li>
@@ -39,13 +39,13 @@ class DownMenuBar extends Component {
               <span>Gry</span>
               <ul className="bg-base-300">
                 <li>
-                  <a>Submenu 1</a>
+                  <a href="#up">Submenu 1</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a href="#up">Submenu 2</a>
                 </li>
                 <li>
-                  <a>Submenu 3</a>
+                  <a href="#up">Submenu 3</a>
                 </li>
               </ul>
             </li>
@@ -53,13 +53,13 @@ class DownMenuBar extends Component {
               <span>Programy</span>
               <ul className="bg-base-300">
                 <li>
-                  <a>Submenu 1</a>
+                  <a href="#up">Submenu 1</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a href="#up">Submenu 2</a>
                 </li>
                 <li>
-                  <a>Submenu 3</a>
+                  <a href="#up">Submenu 3</a>
                 </li>
               </ul>
             </li>

@@ -8,20 +8,49 @@ class MainCards extends Component {
 
   render() {
     return (
-      <div className="card w-48 bg-base-100 shadow-xl ">
+      <div
+        className="cursor-pointer active:bg-violet-600 card w-48 bg-base-100 shadow-xl mb-4 h-96"
+        onClick={() => {
+          console.log("aa");
+        }}
+      >
         <figure>
           <img src={this.props.pictrueLink} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">
-            {this.props.title}
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
+          <h2 className="card-title w-full">{this.props.title}</h2>
           <p className="text-ellipsis overflow-hidden">
             {this.props.description}
           </p>
           <div className="card-actions justify-end">
             {/* <div className="badge badge-outline">Fashion</div> */}
+            <div className="rating gap-1">
+              <input
+                type="radio"
+                name="rating-3"
+                className="mask mask-heart bg-violet-600"
+              />
+              <input
+                type="radio"
+                name="rating-3"
+                className="mask mask-heart bg-violet-600"
+              />
+              <input
+                type="radio"
+                name="rating-3"
+                className="mask mask-heart bg-violet-600"
+              />
+              <input
+                type="radio"
+                name="rating-3"
+                className="mask mask-heart bg-violet-600"
+              />
+              <input
+                type="radio"
+                name="rating-3"
+                className="mask mask-heart bg-violet-600"
+              />
+            </div>
             <div className="badge badge-outline">{this.props.viewCounter}</div>
           </div>
         </div>
