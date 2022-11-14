@@ -4,7 +4,7 @@ class Navbar extends Component {
   state = {};
   render() {
     return (
-      <div className="navbar bg-base-300 z-50">
+      <div className="navbar bg-neutral z-50">
         <div className="flex-1">
           <a
             href="http://localhost:3000/"

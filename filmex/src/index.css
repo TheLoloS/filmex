@@ -49,6 +49,8 @@ code {
   justify-content: space-between;
   align-content: center;
   justify-items: center;
+  /* position: fixed;
+  bottom: 0; */
 }
 .card-body {
   max-height: 20vh;
@@ -56,7 +58,7 @@ code {
 }
 
 .mainCardsConteiner {
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -75,4 +77,48 @@ code {
   justify-content: center;
   align-content: center;
   transform: scale(0.8);
+}
+#root
+  > div
+  > div.w-full.flex.justify-center.mt-8.mb-8
+  > table
+  > tbody
+  > tr:last-child {
+  border-radius: 0 !important;
+  border-bottom: 0.25rem #1f242d solid;
+}
+#card {
+  width: 20rem;
+  height: 30rem;
+  margin-bottom: 2rem;
+  box-shadow: 3px 3px 3px 0px rgba(0, 0, 0);
+  overflow: hidden;
+}
+#card > img {
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+#card > img:hover ~ .move {
+  transform: translateY(-30rem);
+  transition: 0.5s;
+}
+hr {
+  color: white;
+  fill: white;
+  background-color: white;
+  margin: 1rem 0 1rem 0;
+}
+.move:hover {
+  transition: 0.5s;
+  transform: translateY(-30rem);
+}
+
+.move {
+  color: white;
+  background-color: #000000aa;
+  width: 20rem;
+  height: 30rem;
+  padding: 2rem;
+  transition: 0.5s;
 }

@@ -1,65 +1,60 @@
-import React, { Component } from "react";
+import React from "react";
 
-class MainCards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div
-        className="cursor-pointer active:bg-violet-600 card w-48 bg-base-100 shadow-xl mb-4 h-96"
-        onClick={() => {
-          console.log("aa");
-        }}
-      >
-        <figure>
-          <img src={this.props.pictrueLink} alt="Shoes" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title w-full">{this.props.title}</h2>
-          <p className="text-ellipsis overflow-hidden">
-            {this.props.description}
-          </p>
-          <div className="card-actions justify-end">
-            {/* <div className="badge badge-outline">Fashion</div> */}
-            <div className="rating gap-1">
-              <input
-                type="radio"
-                name="rating-3"
-                className="mask mask-heart bg-violet-600"
+export default function MainCards({
+  title,
+  description,
+  pictrueLink,
+  videoLink,
+  viewCounter,
+  category,
+  rating,
+}) {
+  return (
+    <div id="card">
+      <img src={pictrueLink} alt={title} />
+      <div className="move">
+        <br />
+        <h1 className="text-xl font-semibold">{title}</h1>
+        <hr />
+        <p>{description}</p>
+        <br />
+        <p>Kategoria: {category}</p>
+        <br />
+        <p>
+          Ocena:
+          <progress
+            className="progress progress-primary w-32 bg-white ml-4 mr-4"
+            value={rating * 10}
+            max="100"
+          ></progress>
+          {rating}/10
+        </p>
+        <br />
+        <br />
+        <div className="flex flex-row flex-nowrap content-center justify-between items-center">
+          <p>Odsłony: {viewCounter}</p>
+          <button className="btn gap-2 btn-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
               />
-              <input
-                type="radio"
-                name="rating-3"
-                className="mask mask-heart bg-violet-600"
-              />
-              <input
-                type="radio"
-                name="rating-3"
-                className="mask mask-heart bg-violet-600"
-              />
-              <input
-                type="radio"
-                name="rating-3"
-                className="mask mask-heart bg-violet-600"
-              />
-              <input
-                type="radio"
-                name="rating-3"
-                className="mask mask-heart bg-violet-600"
-              />
-            </div>
-            <div className="badge badge-outline">{this.props.viewCounter}</div>
-          </div>
+            </svg>
+            zobacz
+          </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default MainCards;
 
 // this.id = id;
 // this.title = title;

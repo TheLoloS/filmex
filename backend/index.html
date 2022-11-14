@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dodaj Film</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <body>
+    <div class="flex justify-center h-full mt-16">
+      <form onsubmit="event.preventDefault();sendFetch();">
+        <div class="form-group row">
+          <label for="title" class="col-4 col-form-label">Tytuł</label>
+          <div class="col-8">
+            <input
+              id="title"
+              name="title"
+              placeholder="tytuł"
+              type="text"
+              class="form-control"
+              required="required"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="description" class="col-4 col-form-label">Opis</label>
+          <div class="col-8">
+            <textarea
+              id="description"
+              name="description"
+              cols="40"
+              rows="5"
+              class="form-control"
+              aria-describedby="descriptionHelpBlock"
+              required="required"
+            ></textarea>
+            <span id="descriptionHelpBlock" class="form-text text-muted"
+              >Opis</span
+            >
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="pictrueLink" class="col-4 col-form-label"
+            >Link do zdjęcia</label
+          >
+          <div class="col-8">
+            <input
+              id="pictrueLink"
+              name="pictrueLink"
+              placeholder="Link"
+              type="text"
+              class="form-control"
+              required="required"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="videoLink" class="col-4 col-form-label"
+            >Link do filmu</label
+          >
+          <div class="col-8">
+            <input
+              id="videoLink"
+              name="videoLink"
+              placeholder="Link"
+              type="text"
+              class="form-control"
+              required="required"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="viewCounter" class="col-4 col-form-label"
+            >Ilość Wyświetleń</label
+          >
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">0</div>
+              </div>
+              <input
+                id="viewCounter"
+                name="viewCounter"
+                placeholder="0"
+                type="text"
+                class="form-control"
+                aria-describedby="viewCounterHelpBlock"
+                required="required"
+              />
+            </div>
+            <span id="viewCounterHelpBlock" class="form-text text-muted"
+              >Domyślnie 0</span
+            >
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="category" class="col-4 col-form-label">Kategoria</label>
+          <div class="col-8">
+            <select
+              id="category"
+              name="category"
+              class="custom-select"
+              aria-describedby="categoryHelpBlock"
+              required="required"
+            >
+              <option value="komedia">komedia</option>
+              <option value="thriller">thriller</option>
+              <option value="dramat">dramat</option>
+              <option value="melodramat">melodramat</option>
+              <option value="fantasy">fantasy</option>
+              <option value="fantastycznonaukowy">fantastycznonaukowy</option>
+              <option value="kryminał">kryminał</option>
+              <option value="horror">horror</option>
+              <option value="przygoda">przygoda</option>
+              <option value="muzyczny">muzyczny</option>
+              <option value="sensacyjny">sensacyjny</option>
+              <option value="wojenny">wojenny</option>
+              <option value="akcja">akcja</option>
+            </select>
+            <span id="categoryHelpBlock" class="form-text text-muted"
+              >Kategoria</span
+            >
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="rating" class="col-4 col-form-label">Ocena</label>
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Liczba 0/10</div>
+              </div>
+              <input
+                id="rating"
+                name="rating"
+                placeholder="Ocena"
+                type="text"
+                class="form-control"
+                required="required"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="offset-4 col-8">
+            <button
+              id="btn"
+              name="submit"
+              type="submit"
+              class="btn btn-primary bg-violet-600"
+            >
+              Zapisz film
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      function sendFetch() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+          title: document.getElementById("title").value,
+          description: document.getElementById("description").value,
+          pictrueLink: document.getElementById("pictrueLink").value,
+          videoLink: document.getElementById("videoLink").value,
+          viewCounter: document.getElementById("viewCounter").value,
+          category: document.getElementById("category").value,
+          rating: document.getElementById("rating").value,
+        });
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        fetch("http://192.168.0.213:3001/api/setmovie", requestOptions)
+          .then((response) => response.text())
+          .then((result) => window.alert(result))
+          .catch((error) => window.alert("error", error));
+      }
+
+      //   btn.addEventListener("click", () => {
+
+      //   });
+    </script>
+  </body>
+</html>

@@ -37,7 +37,7 @@ app.use(
   })
 );
 app.get("/", function (req, res) {
-  res.send("hello world");
+  res.sendFile(path.join(__dirname, "/index.html"));
 });
 
 app.post("/api/change-password", async (req, res) => {
@@ -217,6 +217,8 @@ app.get("/api/getmovies", async (req, res) => {
           pictrueLink: e.pictrueLink,
           videoLink: e.videoLink,
           viewCounter: e.viewCounter,
+          category: e.category,
+          rating: e.rating,
         };
         allMovies.push(json);
       });
@@ -226,7 +228,15 @@ app.get("/api/getmovies", async (req, res) => {
 });
 
 app.post("/api/setmovie", async (req, res) => {
-  const { title, description, pictrueLink, videoLink, viewCounter } = req.body;
+  const {
+    title,
+    description,
+    pictrueLink,
+    videoLink,
+    viewCounter,
+    category,
+    rating,
+  } = req.body;
 
   try {
     const response = await Movie.create({
@@ -235,6 +245,8 @@ app.post("/api/setmovie", async (req, res) => {
       pictrueLink,
       videoLink,
       viewCounter,
+      category,
+      rating,
     });
     console.log("Add new movie: ", response);
     res.json({ status: "ok" });

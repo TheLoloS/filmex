@@ -1,63 +1,62 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./components/Navbar";
 import Carusel from "./components/Carusel";
 import Fotter from "./components/Fotter";
-import DownMenuBar from "./components/DownMenuBar";
 import MainCards from "./components/MainCards";
+import MainCardsComponent from "./components/MainCardsComponent";
+import { Route, Routes } from "react-router-dom";
+import AllList from "./components/allList";
+import MoviePage from "./components/MoviePage";
 
-// import api from "./api/posts";
+export default function App() {
+  const [Movies, setMovies] = useState(false);
+  const [Cards, setCards] = useState("");
 
-// import logo from "./logo.svg";
-// import "./App.css";
-
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userName: "Piotr",
-      movies: "aa",
-    };
-  }
-  componentDidMount() {
+  // getMovies List
+  useEffect(() => {
     axios.get("http://192.168.0.213:3001/api/getmovies").then((res) => {
-      this.setState({
-        movies: res.data,
-        cards: res.data.map((item, i) => {
-          return (
-            <MainCards
-              title={item.title}
-              description={item.description}
-              pictrueLink={item.pictrueLink}
-              videoLink={item.videoLink}
-              viewCounter={item.viewCounter}
-              // description={this.state.movies[0].description}
-            ></MainCards>
-          );
-        }),
-      });
-      // console.log(res.data[0]);
-      // new MainCards(res.data);
+      setMovies(res.data);
+      setCards(() =>
+        res.data.map((item, i) => {
+          if (i < 4) {
+            return (
+              <MainCards
+                title={item.title}
+                description={item.description}
+                pictrueLink={item.pictrueLink}
+                videoLink={item.videoLink}
+                viewCounter={item.viewCounter}
+                category={item.category}
+                rating={item.rating}
+              ></MainCards>
+            );
+          } else {
+            return null;
+          }
+        })
+      );
     });
-  }
+  }, []);
 
-  render() {
-    return (
-      <div className="App">
-        <Navbar></Navbar>
-        <Carusel></Carusel>
-        <DownMenuBar></DownMenuBar>
-        <div className="flex flex-col w-full h-screen mainCardsConteiner">
-          {/* {console.log(this.state.movies[0])}
-          {this.state.movies.map((e) => (
-             */}
-          {/* {[...this.state.movies].forEach((element, i) => { */}
+  return (
+    <div className="App">
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Carusel />
+              <MainCardsComponent Cards={Cards} />
+            </>
+          }
+        ></Route>
+        <Route path="all" element={<AllList movies={Movies} />}></Route>
+        <Route path="movie/:id" element={<MoviePage movies={Movies} />}></Route>
+      </Routes>
 
-          {this.state.cards}
-          {/* ))} */}
-        </div>
-        <Fotter></Fotter>
-      </div>
-    );
-  }
+      <Fotter />
+    </div>
+  );
 }
