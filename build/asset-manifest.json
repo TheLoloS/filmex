@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/filmex/build/static/css/main.6af84bd9.css",
-    "main.js": "/filmex/build/static/js/main.0af3d635.js",
+    "main.js": "/filmex/build/static/js/main.7da445c9.js",
     "static/js/787.6d2037ed.chunk.js": "/filmex/build/static/js/787.6d2037ed.chunk.js",
     "index.html": "/filmex/build/index.html",
     "main.6af84bd9.css.map": "/filmex/build/static/css/main.6af84bd9.css.map",
-    "main.0af3d635.js.map": "/filmex/build/static/js/main.0af3d635.js.map",
+    "main.7da445c9.js.map": "/filmex/build/static/js/main.7da445c9.js.map",
     "787.6d2037ed.chunk.js.map": "/filmex/build/static/js/787.6d2037ed.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6af84bd9.css",
-    "static/js/main.0af3d635.js"
+    "static/js/main.7da445c9.js"
   ]
 }

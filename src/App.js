@@ -44,7 +44,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route
-          path="/"
+          path="/filmex/build/"
           element={
             <>
               <Carusel />
@@ -52,8 +52,8 @@ export default function App() {
             </>
           }
         ></Route>
-        <Route path="all" element={<AllList movies={Movies} />}></Route>
-        <Route path="movie/:id" element={<MoviePage movies={Movies} />}></Route>
+        <Route path="/filmex/build/all" element={<AllList movies={Movies} />}></Route>
+        <Route path="/filmex/build/movie/:id" element={<MoviePage movies={Movies} />}></Route>
       </Routes>
 
       <Fotter />
