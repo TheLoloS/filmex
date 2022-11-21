@@ -1,5 +1,6 @@
 {
   "name": "filmex",
+  "homepage" : "https://thelolos.github.io/filmex/build/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
