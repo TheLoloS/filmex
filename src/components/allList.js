@@ -36,7 +36,7 @@ export default function allList({ movies }) {
                   {/* <td className="text-center">{e.category}</td> */}
                   {/* <td className="text-center">{e.rating}/10</td> */}
                   <td className="text-center">
-                    <Link className="btn btn-primary" to={"/movie/" + e.id}>
+                    <Link className="btn btn-primary" to={"/filmex/build/movie/" + e.id}>
                       Zobacz!
                     </Link>
                   </td>
