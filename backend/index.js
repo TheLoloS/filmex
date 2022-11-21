@@ -28,7 +28,7 @@ const URI =
   }
 })();
 
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 
 app.use(
@@ -36,9 +36,9 @@ app.use(
     origin: "*",
   })
 );
-// app.get("/", function (req, res) {
-//   res.sendFile(path.join(__dirname, "/index.html"));
-// });
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "/index.html"));
+});
 
 app.post("/api/change-password", async (req, res) => {
   const { token, newpassword: plainTextPassword } = req.body;
