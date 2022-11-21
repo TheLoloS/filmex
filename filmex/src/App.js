@@ -15,7 +15,7 @@ export default function App() {
 
   // getMovies List
   useEffect(() => {
-    axios.get("http://192.168.0.213:3001/api/getmovies").then((res) => {
+    axios.get("/api/getmovies").then((res) => {
       setMovies(res.data);
       setCards(() =>
         res.data.map((item, i) => {

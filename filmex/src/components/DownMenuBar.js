@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function name() {
   return (
     <div className="navbar bg-base-300 p-0">
@@ -7,7 +9,7 @@ export default function name() {
             <span>Filmy</span>
             <ul className="bg-base-300">
               <li>
-                <a href="#up">Submenu 1</a>
+                <Link to="/all">Wszystko</Link>
               </li>
               <li>
                 <a href="#up">Submenu 2</a>

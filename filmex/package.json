@@ -42,5 +42,6 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.2.2"
-  }
+  },
+  "proxy": "http://filmex.thls.pl:3001/"
 }

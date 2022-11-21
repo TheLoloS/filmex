@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import LoginForm from "./LoginForm";
 
 class Navbar extends Component {
   state = {};
@@ -31,25 +32,9 @@ class Navbar extends Component {
                 />
               </div>
             </label>
-            <ul
-              tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                {/* change for a tag */}
-                <p className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </p>
-              </li>
-              <li>
-                <p>Settings</p>
-              </li>
-              <li>
-                {/* change for a tag */}
-                <p>Logout</p>
-              </li>
-            </ul>
+            <div className="mt-3 p-2 h-96 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-80">
+              <LoginForm></LoginForm>
+            </div>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@ const URI =
   }
 })();
 
-app.use("/", express.static(path.join(__dirname, "db")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 
 app.use(
@@ -36,9 +36,9 @@ app.use(
     origin: "*",
   })
 );
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "/index.html"));
-});
+// app.get("/", function (req, res) {
+//   res.sendFile(path.join(__dirname, "/index.html"));
+// });
 
 app.post("/api/change-password", async (req, res) => {
   const { token, newpassword: plainTextPassword } = req.body;
@@ -204,7 +204,7 @@ app.get("/api/getscore", async (req, res) => {
   // res.json({ status: "ok" });
 });
 
-app.get("/api/getmovies", async (req, res) => {
+app.get("/api/getmovies", cors(), async (req, res) => {
   Movie.find({})
     .exec()
     .then(function (movies) {
@@ -260,6 +260,6 @@ app.post("/api/setmovie", async (req, res) => {
 
 app;
 
-app.listen(port, () => {
+app.listen(3001, () => {
   console.log(`http://localhost:${port}/`);
 });
