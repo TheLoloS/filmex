@@ -15,7 +15,7 @@ export default function App() {
 
   // getMovies List
   useEffect(() => {
-    axios.get("/api/getmovies").then((res) => {
+    axios.get("https://dead-red-clownfish-hem.cyclic.app/api/getmovies").then((res) => {
       setMovies(res.data);
       setCards(() =>
         res.data.map((item, i) => {
