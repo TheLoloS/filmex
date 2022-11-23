@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function MainCards({
+  id,
   title,
   description,
   pictrueLink,
@@ -33,7 +35,10 @@ export default function MainCards({
         <br />
         <div className="flex flex-row flex-nowrap content-center justify-between items-center">
           <p>Odsłony: {viewCounter}</p>
-          <button className="btn gap-2 btn-primary">
+          <Link
+            className="btn gap-2 btn-primary"
+            to={"/filmex/build/movie/" + id}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -49,7 +54,7 @@ export default function MainCards({
               />
             </svg>
             zobacz
-          </button>
+          </Link>
         </div>
       </div>
     </div>

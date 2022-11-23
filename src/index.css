@@ -93,6 +93,7 @@ code {
   margin-bottom: 2rem;
   box-shadow: 3px 3px 3px 0px rgba(0, 0, 0);
   overflow: hidden;
+  margin: 2rem;
 }
 #card > img {
   height: 100%;

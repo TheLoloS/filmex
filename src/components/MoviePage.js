@@ -8,7 +8,7 @@ export default function MoviePage({ movies }) {
       return entry.id === params.id;
     });
   }
-
+  console.log(movies);
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -26,21 +26,21 @@ export default function MoviePage({ movies }) {
           <p className="py-6">{match && match[0].description}</p>
 
           <br />
-          <p>Kategoria: {match[0].category}</p>
+          <p>Kategoria: {match && match[0].category}</p>
           <br />
           <p>
             Ocena:
             <progress
               className="progress progress-primary w-32 bg-white ml-4 mr-4"
-              value={match[0].rating * 10}
+              value={match && match[0].rating * 10}
               max="100"
             ></progress>
-            {match[0].rating}/10
+            {match && match[0].rating}/10
           </p>
           <br />
 
           <div className="">
-            <p>Odsłony: {match[0].viewCounter}</p>
+            <p>Odsłony: {match ? match[0].viewCounter : 50}</p>
           </div>
           <br />
           <br />
