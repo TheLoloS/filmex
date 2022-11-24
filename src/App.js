@@ -9,10 +9,13 @@ import { Route, Routes } from "react-router-dom";
 import AllList from "./components/allList";
 import MoviePage from "./components/MoviePage";
 import SearchList from "./components/SearchList";
+import MainCardNoLoginDiv from "./components/MainCardNoLoginDiv";
+import CookiesCard from "./components/CookiesCard";
 
 export default function App() {
   const [Movies, setMovies] = useState(false);
   const [Cards, setCards] = useState("");
+  const [LoginStatus, setLoginStatus] = useState(false);
   // if (localStorage.getItem("Cards")) {
   //   setCards(JSON.parse(localStorage.getItem("Cards")));
   // }
@@ -20,7 +23,6 @@ export default function App() {
     const data = JSON.parse(
       window.localStorage.getItem("MY_APP_STATE") && false
     );
-    console.log(data);
     if (data) {
       setMovies(JSON.parse(data));
       setCards(() =>
@@ -49,44 +51,68 @@ export default function App() {
     window.localStorage.setItem("MY_APP_STATE", JSON.stringify(Movies));
   }, [Movies]);
   // getMovies List
+
   useEffect(() => {
-    axios
-      .get("https://dead-red-clownfish-hem.cyclic.app/api/getmovies")
-      .then((res) => {
-        setMovies(res.data);
-        setCards(() =>
-          res.data.map((item, i) => {
-            if (i < 4) {
-              return (
-                <MainCards
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  pictrueLink={item.pictrueLink}
-                  videoLink={item.videoLink}
-                  viewCounter={item.viewCounter}
-                  category={item.category}
-                  rating={item.rating}
-                ></MainCards>
-              );
-            } else {
-              return null;
-            }
-          })
-        );
-      });
-  }, []);
+    LoginStatus &&
+      axios
+        .get("https://dead-red-clownfish-hem.cyclic.app/api/getmovies")
+        .then((res) => {
+          setMovies(res.data);
+          setCards(() =>
+            res.data.map((item, i) => {
+              if (i < 4) {
+                return (
+                  <MainCards
+                    id={item.id}
+                    title={item.title}
+                    description={item.description}
+                    pictrueLink={item.pictrueLink}
+                    videoLink={item.videoLink}
+                    viewCounter={item.viewCounter}
+                    category={item.category}
+                    rating={item.rating}
+                  ></MainCards>
+                );
+              } else {
+                return null;
+              }
+            })
+          );
+        });
+  }, [LoginStatus, setLoginStatus]);
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar LoginStatus={LoginStatus} />
       <Routes>
         <Route
           path="/filmex/build/"
           element={
             <>
               <Carusel />
-              <MainCardsComponent Cards={Cards} />
+              {LoginStatus ? (
+                <MainCardsComponent Cards={Cards} />
+              ) : (
+                <div className="mainCardNoLogin flex justify-center items-center">
+                  <div className="card card-side bg-neutral shadow-xl">
+                    <div className="card-body">
+                      <h2 className="card-title">Zaloguj się!</h2>
+                      <p>
+                        Zaloguj się, Aby uzyskać dostep do Filmów, Programów,
+                        seriali i wiele więcej!
+                      </p>
+                      <div className="card-actions justify-end">
+                        <button
+                          className="btn btn-lg btn-primary"
+                          onClick={() => setLoginStatus(true)}
+                        >
+                          Zaloguj
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </>
           }
         ></Route>
@@ -103,7 +129,7 @@ export default function App() {
           element={<SearchList movies={Movies} />}
         ></Route>
       </Routes>
-
+      <CookiesCard />
       <Fotter />
     </div>
   );

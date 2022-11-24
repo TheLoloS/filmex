@@ -6,7 +6,12 @@ function MainCardsComponent({ Cards }) {
     <>
       <DownMenuBar></DownMenuBar>
       <div className="flex flex-col w-full h-screen mainCardsConteiner">
-        {Cards}
+        {typeof Cards === "string" ? (
+          <progress className="progress w-56"></progress>
+        ) : (
+          Cards
+        )}
+        {console.log(typeof Cards)}
       </div>
     </>
   );

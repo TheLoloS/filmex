@@ -123,3 +123,7 @@ hr {
   padding: 2rem;
   transition: 0.5s;
 }
+
+.mainCardNoLogin {
+  height: calc(50vh - 4rem);
+}
