@@ -126,5 +126,20 @@ hr {
 
 .mainCardNoLogin {
   height: calc(50vh - 4rem);
-  max-width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10% 0 10%;
+}
+
+.mainCardNoLogin:first-child {
+  max-width: 80vw;
+}
+
+.searchList {
+  min-height: calc(100vh - 4rem);
+}
+
+.w80vw {
+  width: 80vw;
 }
