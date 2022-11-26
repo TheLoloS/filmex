@@ -2640,6 +2640,7 @@ hr {
 
 .mainCardNoLogin {
   height: calc(50vh - 4rem);
+  max-width: 80%;
 }
 
 @media (min-width: 768px) {
