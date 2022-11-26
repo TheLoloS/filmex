@@ -27,10 +27,7 @@ export default function allList({ movies }) {
                     </td>
                     <td className="text-center whitespace-normal">{e.title}</td>
                     <td className="text-center">
-                      <Link
-                        className="btn btn-primary"
-                        to={"/filmex/build/movie/" + e.id}
-                      >
+                      <Link className="btn btn-primary" to={"/movie/" + e.id}>
                         Zobacz!
                       </Link>
                     </td>

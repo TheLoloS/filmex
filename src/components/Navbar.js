@@ -9,7 +9,7 @@ export default function Navbar({ LoginStatus }) {
     <div className="navbar bg-neutral z-50">
       <div className="flex-1">
         <a
-          href="http://localhost:3000/"
+          href="https://filmex.thls.pl/"
           className="btn btn-ghost normal-case text-xl"
         >
           Filmex
@@ -29,10 +29,7 @@ export default function Navbar({ LoginStatus }) {
         )}
 
         {LoginStatus ? (
-          <Link
-            className="btn gap-2 btn-primary"
-            to={"/filmex/build/Search/" + Search}
-          >
+          <Link className="btn gap-2 btn-primary" to={"/Search/" + Search}>
             Szukaj
           </Link>
         ) : (

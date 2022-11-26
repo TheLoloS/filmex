@@ -86,7 +86,7 @@ export default function App() {
       <Navbar LoginStatus={LoginStatus} />
       <Routes>
         <Route
-          path="/filmex/build/"
+          path="/"
           element={
             <>
               <Carusel />
@@ -116,16 +116,13 @@ export default function App() {
             </>
           }
         ></Route>
+        <Route path="/all" element={<AllList movies={Movies} />}></Route>
         <Route
-          path="/filmex/build/all"
-          element={<AllList movies={Movies} />}
-        ></Route>
-        <Route
-          path="/filmex/build/movie/:id"
+          path="/movie/:id"
           element={<MoviePage movies={Movies} />}
         ></Route>
         <Route
-          path="/filmex/build/Search/:title"
+          path="/Search/:title"
           element={<SearchList movies={Movies} />}
         ></Route>
       </Routes>

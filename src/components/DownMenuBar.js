@@ -9,7 +9,7 @@ export default function name() {
             <span>Filmy</span>
             <ul className="bg-base-300">
               <li>
-                <Link to="./all">Wszystko</Link>
+                <Link to="/all">Wszystko</Link>
               </li>
               <li>
                 <a href="#up">Submenu 2</a>
