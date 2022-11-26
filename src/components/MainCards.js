@@ -35,10 +35,7 @@ export default function MainCards(props) {
         <br />
         <div className="flex flex-row flex-nowrap content-center justify-between items-center">
           <p>Odsłony: {props.viewCounter}</p>
-          <Link
-            className="btn gap-2 btn-primary"
-            to={"/filmex/build/movie/" + props.id}
-          >
+          <Link className="btn gap-2 btn-primary" to={"/movie/" + props.id}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

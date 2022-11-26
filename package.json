@@ -1,6 +1,6 @@
 {
   "name": "filmex",
-  "homepage": "https://thelolos.github.io/filmex/build",
+  "homepage": "https://filmex.thls.pl/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,8 +20,9 @@
   },
   "scripts": {
     "tailwind": "npx tailwindcss -i ./src/index.css -o ./build/style.css --watch",
+    "deploy": "gh-pages -d ./build",
     "start": "react-scripts start",
-    "build": "react-scripts build & npx tailwindcss -i ./src/index.css -o ./build/style.css --watch",
+    "build": "react-scripts build & npx tailwindcss -i ./src/index.css -o ./build/style.css & gh-pages -d ./build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
