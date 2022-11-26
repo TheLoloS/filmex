@@ -1,43 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function MainCards({
-  id,
-  title,
-  description,
-  pictrueLink,
-  videoLink,
-  viewCounter,
-  category,
-  rating,
-}) {
+//   id,
+// title,
+// description,
+// pictrueLink,
+// videoLink,
+// viewCounter,
+// category,
+// rating,
+
+export default function MainCards(props) {
   return (
     <div id="card">
-      <img src={pictrueLink} alt={title} />
+      <img src={props.pictrueLink} alt={props.title} />
       <div className="move">
         <br />
-        <h1 className="text-xl font-semibold">{title}</h1>
+        <h1 className="text-xl font-semibold">{props.title}</h1>
         <hr />
-        <p>{description}</p>
+        <p>{props.description}</p>
         <br />
-        <p>Kategoria: {category}</p>
+        <p>Kategoria: {props.category}</p>
         <br />
         <p>
           Ocena:
           <progress
             className="progress progress-primary w-32 bg-white ml-4 mr-4"
-            value={rating * 10}
+            value={props.rating * 10}
             max="100"
           ></progress>
-          {rating}/10
+          {props.rating}/10
         </p>
         <br />
         <br />
         <div className="flex flex-row flex-nowrap content-center justify-between items-center">
-          <p>Odsłony: {viewCounter}</p>
+          <p>Odsłony: {props.viewCounter}</p>
           <Link
             className="btn gap-2 btn-primary"
-            to={"/filmex/build/movie/" + id}
+            to={"/filmex/build/movie/" + props.id}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -60,10 +60,3 @@ export default function MainCards({
     </div>
   );
 }
-
-// this.id = id;
-// this.title = title;
-// this.description = description;
-// this.pictrueLink = pictrueLink;
-// this.videoLink = videoLink;
-// this.viewCounter = viewCounter;
