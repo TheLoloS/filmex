@@ -16,6 +16,8 @@ export default function App() {
   const [Movies, setMovies] = useState(false);
   const [Cards, setCards] = useState("");
   const [LoginStatus, setLoginStatus] = useState(false);
+  const token = localStorage.getItem("token");
+  !LoginStatus && token && setLoginStatus(true);
   // if (localStorage.getItem("Cards")) {
   //   setCards(JSON.parse(localStorage.getItem("Cards")));
   // }
@@ -101,14 +103,7 @@ export default function App() {
                         Zaloguj się, Aby uzyskać dostep do Filmów, Programów,
                         seriali i wiele więcej!
                       </p>
-                      <div className="card-actions justify-end">
-                        <button
-                          className="btn btn-lg btn-primary"
-                          onClick={() => setLoginStatus(true)}
-                        >
-                          Zaloguj
-                        </button>
-                      </div>
+                      <div className="card-actions justify-end"></div>
                     </div>
                   </div>
                 </div>
