@@ -9,8 +9,9 @@ import { Route, Routes } from "react-router-dom";
 import AllList from "./components/allList";
 import MoviePage from "./components/MoviePage";
 import SearchList from "./components/SearchList";
-import MainCardNoLoginDiv from "./components/MainCardNoLoginDiv";
+// import MainCardNoLoginDiv from "./components/MainCardNoLoginDiv";
 import CookiesCard from "./components/CookiesCard";
+import SearchCategory from "./components/SearchCategory";
 
 export default function App() {
   const [Movies, setMovies] = useState(false);
@@ -117,8 +118,16 @@ export default function App() {
           element={<MoviePage movies={Movies} />}
         ></Route>
         <Route
-          path="/Search/:title"
+          path="/AllSearch/:title"
           element={<SearchList movies={Movies} />}
+        ></Route>
+        <Route
+          path="/Search/:type/:category"
+          element={<SearchCategory movies={Movies} />}
+        ></Route>
+        <Route
+          path="/Search/:type/"
+          element={<SearchCategory movies={Movies} />}
         ></Route>
       </Routes>
       <CookiesCard />

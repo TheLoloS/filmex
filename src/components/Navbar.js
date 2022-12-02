@@ -16,7 +16,6 @@ export default function Navbar({ LoginStatus }) {
         </a>
       </div>
       <div className="flex-none gap-2">
-        {console.log(LoginStatus)}
         {LoginStatus && (
           <div className="form-control">
             <input
@@ -29,7 +28,7 @@ export default function Navbar({ LoginStatus }) {
         )}
 
         {LoginStatus ? (
-          <Link className="btn gap-2 btn-primary" to={"/Search/" + Search}>
+          <Link className="btn gap-2 btn-primary" to={"/AllSearch/" + Search}>
             Szukaj
           </Link>
         ) : (
