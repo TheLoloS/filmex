@@ -28,6 +28,7 @@ export default function App() {
     );
     if (data) {
       setMovies(JSON.parse(data));
+      console.table(JSON.parse(data));
       setCards(() =>
         JSON.parse(data).map((item, i) => {
           if (i < 4) {

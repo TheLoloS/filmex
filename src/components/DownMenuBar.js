@@ -9,7 +9,8 @@ export default function name() {
           <li tabIndex="0">
             <span>Film</span>
             <ul className="bg-base-300 p-6">
-              <LiAElement src={"komedia"} type={"film"} />
+              <LiAElement src={"wszystko"} type={"film"} />
+              <LiAElement src={"komedia"} />
               <LiAElement src={"thriller"} />
               <LiAElement src={"dramat"} />
               <LiAElement src={"melodramat"} />
@@ -27,6 +28,7 @@ export default function name() {
           <li tabIndex="0">
             <span>Serial</span>
             <ul className="bg-base-300 p-6">
+              <LiAElement src={"wszystko"} type={"serial"} />
               <LiAElement src={"komedia"} />
               <LiAElement src={"thriller"} />
               <LiAElement src={"dramat"} />
@@ -45,6 +47,7 @@ export default function name() {
           <li tabIndex="0">
             <span>Gry</span>
             <ul className="bg-base-300 p-6">
+              <LiAElement src={"wszystko"} type={"gra"} />
               <LiAElement src={"zręcznościowe"} />
               <LiAElement src={"przygodowe"} />
               <LiAElement src={"fabularne"} />
@@ -60,6 +63,7 @@ export default function name() {
           <li tabIndex="0">
             <span>Programy</span>
             <ul className="bg-base-300 p-6">
+              <LiAElement src={"wszystko"} type={"program"} />
               <LiAElement src={"Windows"} />
               <LiAElement src={"Android"} />
             </ul>
