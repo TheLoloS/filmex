@@ -5,8 +5,10 @@ import MainCards from "./MainCards";
 
 function SearchList({ movies }) {
   const params = useParams();
+
   //   const [ListItems, setListItems] = useState();
   //   movies && console.log(movies);
+
   return (
     <div className="searchList flex flex-col w-full mainCardsConteiner">
       <CategoryInListDiv />
@@ -15,7 +17,6 @@ function SearchList({ movies }) {
           if (
             item.title.toLowerCase().indexOf(params.title.toLowerCase()) !== -1
           ) {
-            // console.log("udało sie");
             return (
               <MainCards
                 id={item.id}
@@ -30,6 +31,12 @@ function SearchList({ movies }) {
             );
           }
         })}
+
+      {/* {items.length === 0 && lastItem ? (
+        <button className="btn btn-square loading"></button>
+      ) : (
+        <p>Brak wyników wyszukiwania</p>
+      )} */}
     </div>
   );
 }

@@ -5,6 +5,8 @@ import MainCards from "./MainCards";
 
 function SearchCategory({ movies }) {
   const params = useParams();
+  //   const [items, setItems] = useState([]);
+  //   const [lastItem, setlastItem] = useState(false);
   //   const [ListItems, setListItems] = useState();
   //   movies && console.log(movies);
   return (
@@ -23,6 +25,8 @@ function SearchCategory({ movies }) {
                   .toLowerCase()
                   .indexOf(params.category.toLowerCase()) !== -1
               ) {
+                // setItems([...items, item]);
+                // items.length - 1 === i && setlastItem(true);
                 return (
                   <MainCards
                     id={item.id}
@@ -39,6 +43,11 @@ function SearchCategory({ movies }) {
             }
           }
         })}
+      {/* {items.length === 0 && lastItem ? (
+        <button className="btn btn-square loading"></button>
+      ) : (
+        <p>Brak wyników wyszukiwania</p>
+      )} */}
     </div>
   );
 }
