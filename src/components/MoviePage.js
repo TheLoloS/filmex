@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 export default function MoviePage({ movies }) {
   const params = useParams();
@@ -8,21 +9,20 @@ export default function MoviePage({ movies }) {
       return entry.id === params.id;
     });
   }
-  console.log(movies);
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
-        <img
-          src={
-            match
-              ? match[0].pictrueLink
-              : "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif"
-          }
-          className="max-w-sm rounded-lg shadow-2xl"
-          alt="zdj"
-        />
+        {match ? (
+          <img
+            src={match[0].pictrueLink}
+            className="max-w-sm rounded-lg shadow-2xl"
+            alt="zdj"
+          />
+        ) : (
+          <button className="btn btn-square loading"></button>
+        )}
         <div className="text-center">
-          <h1 className="text-5xl font-bold ">{match && match[0].title}</h1>
+          <h1 className="text-4xl font-bold ">{match && match[0].title}</h1>
           <p className="py-6">{match && match[0].description}</p>
 
           <br />
@@ -44,12 +44,26 @@ export default function MoviePage({ movies }) {
           </div>
           <br />
           <br />
-          <a
+
+          <label
+            htmlFor="my-modal-6"
             className="btn btn-primary"
-            href={match ? match[0].videoLink : "#"}
+            onClick={() => {
+              document
+                .querySelector("#modalHref")
+                .setAttribute("href", match[0].videoLink.toString());
+              document.querySelector("#modalHref").innerHTML =
+                (match && match[0].type === "serial") ||
+                (match && match[0].type === "film")
+                  ? "Oglądaj"
+                  : "Pobierz";
+            }}
           >
-            Oglądaj
-          </a>
+            {(match && match[0].type === "serial") ||
+            (match && match[0].type === "film")
+              ? "Oglądaj"
+              : "Pobierz"}
+          </label>
         </div>
       </div>
     </div>

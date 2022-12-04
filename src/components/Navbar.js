@@ -1,6 +1,7 @@
 import LoginForm from "./LoginForm";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 
 export default function Navbar({ LoginStatus }) {
   const [Search, setSearch] = useState("");
@@ -8,12 +9,9 @@ export default function Navbar({ LoginStatus }) {
   return (
     <div className="navbar bg-neutral z-50">
       <div className="flex-1">
-        <a
-          href="https://filmex.thls.pl/"
-          className="btn btn-ghost normal-case text-xl"
-        >
-          Filmex
-        </a>
+        <Link className="btn btn-ghost normal-case text-xl" to="/">
+          <img src="/icons/smok.svg" alt="Main" className="h-full" />
+        </Link>
       </div>
       <div className="flex-none gap-2">
         {LoginStatus && (
@@ -21,7 +19,9 @@ export default function Navbar({ LoginStatus }) {
             <input
               type="text"
               placeholder="Search"
-              className="input input-bordered"
+              className={
+                isMobile ? "input input-bordered w50vw" : "input input-bordered"
+              }
               onChange={(e) => setSearch(e.target?.value)}
             />
           </div>

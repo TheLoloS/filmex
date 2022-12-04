@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function CookiesCard() {
-  const [showCookie, setShowCookie] = useState(false);
+  const [showCookie, setShowCookie] = useState(true);
 
   !showCookie &&
     localStorage.getItem("Accept-Cookies") === "true" &&

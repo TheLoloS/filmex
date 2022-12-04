@@ -12,11 +12,14 @@ import SearchList from "./components/SearchList";
 // import MainCardNoLoginDiv from "./components/MainCardNoLoginDiv";
 import CookiesCard from "./components/CookiesCard";
 import SearchCategory from "./components/SearchCategory";
+import SearchCategoryType from "./components/SearchCategoryType";
+import Modal from "./components/Modal";
 
 export default function App() {
   const [Movies, setMovies] = useState(false);
   const [Cards, setCards] = useState("");
   const [LoginStatus, setLoginStatus] = useState(false);
+  const [modal, setModal] = useState(true);
   const token = localStorage.getItem("token");
   !LoginStatus && token && setLoginStatus(true);
   // if (localStorage.getItem("Cards")) {
@@ -41,6 +44,7 @@ export default function App() {
                 viewCounter={item.viewCounter}
                 category={item.category}
                 rating={item.rating}
+                type={item.type}
               ></MainCards>
             );
           } else {
@@ -75,6 +79,7 @@ export default function App() {
                     viewCounter={item.viewCounter}
                     category={item.category}
                     rating={item.rating}
+                    type={item.type}
                   ></MainCards>
                 );
               } else {
@@ -88,6 +93,7 @@ export default function App() {
   return (
     <div className="App">
       <Navbar LoginStatus={LoginStatus} />
+      <Modal modal={modal} setModal={setModal} />
       <Routes>
         <Route
           path="/"
@@ -124,7 +130,7 @@ export default function App() {
         ></Route>
         <Route
           path="/Search/:type/:category"
-          element={<SearchCategory movies={Movies} />}
+          element={<SearchCategoryType movies={Movies} />}
         ></Route>
         <Route
           path="/Search/:type/"

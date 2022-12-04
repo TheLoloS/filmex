@@ -5,6 +5,7 @@ import { useState } from "react";
 const LoginForm = () => {
   const [Login, setLogin] = useState("");
   const [Password, setPassowrd] = useState("");
+  const [btnLoading, setBtnLoading] = useState(true);
   return (
     <div className="card flex-shrink-0 w-full h-80 bg-base-100 rounded-none">
       <div className="card-body">
@@ -38,12 +39,19 @@ const LoginForm = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button
-            className="btn btn-primary"
-            onClick={() => HandleSubmit(Login, Password)}
-          >
-            Login
-          </button>
+          {btnLoading ? (
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                HandleSubmit(Login, Password);
+                setBtnLoading(false);
+              }}
+            >
+              Login
+            </button>
+          ) : (
+            <button className="btn loading">Logowanie</button>
+          )}
         </div>
       </div>
     </div>

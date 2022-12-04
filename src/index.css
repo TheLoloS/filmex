@@ -29,9 +29,9 @@ code {
   max-width: 25vw;
   place-content: center;
 }
-.li-finder > li > ul {
+/* .li-finder > li > ul {
   max-width: 25vw;
-}
+} */
 
 .li-finder > li > ul > li > a {
   place-content: center;
@@ -142,4 +142,26 @@ hr {
 
 .w80vw {
   width: 80vw;
+}
+.w50vw {
+  width: 50vw;
+}
+.tran-75vw {
+  transform: translateX(-75vw);
+}
+.tran-50vw {
+  transform: translateX(-50vw);
+}
+.tran-25vw {
+  transform: translateX(-25vw);
+}
+
+.ulDonwBarMenu {
+  max-height: 40vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: center;
+  width: 33vw;
 }

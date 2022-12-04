@@ -18,18 +18,24 @@ function SearchCategory({ movies }) {
               item.type.toLowerCase().indexOf(params.type.toLowerCase()) !== -1
             ) {
               // console.log("udało sie");
-              return (
-                <MainCards
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  pictrueLink={item.pictrueLink}
-                  videoLink={item.videoLink}
-                  viewCounter={item.viewCounter}
-                  category={item.category}
-                  rating={item.rating}
-                ></MainCards>
-              );
+              if (
+                item.category
+                  .toLowerCase()
+                  .indexOf(params.category.toLowerCase()) !== -1
+              ) {
+                return (
+                  <MainCards
+                    id={item.id}
+                    title={item.title}
+                    description={item.description}
+                    pictrueLink={item.pictrueLink}
+                    videoLink={item.videoLink}
+                    viewCounter={item.viewCounter}
+                    category={item.category}
+                    rating={item.rating}
+                  ></MainCards>
+                );
+              }
             }
           }
         })}
