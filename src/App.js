@@ -5,7 +5,7 @@ import Carusel from "./components/Carusel";
 import Fotter from "./components/Fotter";
 import MainCards from "./components/MainCards";
 import MainCardsComponent from "./components/MainCardsComponent";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useSearchParams } from "react-router-dom";
 import AllList from "./components/allList";
 import MoviePage from "./components/MoviePage";
 import SearchList from "./components/SearchList";
@@ -20,9 +20,14 @@ export default function App() {
   const [Cards, setCards] = useState("");
   const [LoginStatus, setLoginStatus] = useState(false);
   const [modal, setModal] = useState(true);
+  let [searchParams, setSearchParams] = useSearchParams(
+    document.location.search
+  );
   const token = localStorage.getItem("token");
   !LoginStatus && token && setLoginStatus(true);
   // if (localStorage.getItem("Cards")) {
+  // add query param to url
+  // setSearchParams({ search: "twojstary" });
   //   setCards(JSON.parse(localStorage.getItem("Cards")));
   // }
   useEffect(() => {

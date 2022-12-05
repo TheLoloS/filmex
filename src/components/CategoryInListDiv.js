@@ -4,7 +4,23 @@ function CategoryInListDiv() {
       <h1 className="card-title self-center text-2xl">Wyniki Wyszukiwania:</h1>
       <div className="divider" />
       <div className="filterDiv w-full flex nowrap justify-evenly">
-        <select className="select select-primary w-1/4 max-w-xs">
+        <div className="dropdown">
+          <label tabIndex={0} className="btn m-1">
+            Click
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <a>Item 1</a>
+            </li>
+            <li>
+              <a>Item 2</a>
+            </li>
+          </ul>
+        </div>
+        {/* <select className="select select-primary w-1/4 max-w-xs">
           <option selected disabled>
             Typ
           </option>
@@ -40,7 +56,7 @@ function CategoryInListDiv() {
           <option value="akcja">Najczesciej ogladane</option>
           <option value="akcja">Najlepiej oceniane</option>
           <option value="akcja">Najnowsze</option>
-        </select>
+        </select> */}
       </div>
     </div>
   );

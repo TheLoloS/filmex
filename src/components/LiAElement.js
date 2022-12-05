@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Loading, LoadingDiv } from "./LoadingDiv";
+import { isMobile } from "react-device-detect";
 
 function LiAElement(props) {
   return (
-    <li className="p-1 w-48 ">
+    <li className={!isMobile ? "p-1 w-48" : "p-1"}>
       <Link
         to={
           "/Search/" +
